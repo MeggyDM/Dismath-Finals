@@ -1,75 +1,46 @@
-================================================================
-  STARTER TEMPLATE - Mini Student Records & Campus Map
-  Discrete Math Final Project
-================================================================
+===========================================================
+DISCRETE MATHEMATICS FINALS : STUDENT BST, QUANTIFIER CHECK & CAMPUS GRAPH
+===========================================================
 
-WHAT'S IN THIS PROJECT
-----------------------
-You have FIVE Java files in src/. Two are already complete:
+NAME: Meg De Mesa
+STUDENT ID: 2022316971
+COURSE/SECTION: BSIT / IT2D
 
-  Student.java        - DONE. The data class. Don't change it.
-  Main.java           - DONE. The menu and helper methods.
-                        Don't change it - it already calls
-                        the methods you'll write.
+-----------------------------------------------------------
+1. VIDEO EXPLANATION LINK
+-----------------------------------------------------------
+Link:
 
-The other three are EMPTY - you fill them in:
+-----------------------------------------------------------
+2. HOW THE PROGRAM WORKS
+-----------------------------------------------------------
+The program demonstrates three core Discrete Mathematics
+concepts applied in Java:
 
-  StudentBST.java     - Trees topic.
-                        Fill in: add, search, displayInOrder, getAllStudents.
+A. BINARY SEARCH TREE (TREES):
+   - Stores Student objects using their ID as the unique key.
+   - Uses recursion to navigate the tree for adding and searching.
+   - Performs an in-order traversal to display students
+     sorted by ID.
 
-  CampusGraph.java    - Graph Theory topic.
-                        Fill in: constructor, addEdge, displayMap, shortestPath.
+B. DIJKSTRA'S ALGORITHM (GRAPH THEORY):
+   - Represents the campus as a weighted graph via an
+     Adjacency Matrix.
+   - Finds the absolute shortest path between two buildings
+     by calculating cumulative weights (meters).
+   - Reconstructs the path using a "previous" node array.
 
-  QuantifierCheck.java - Quantifiers topic.
-                        Fill in: ONE of the two methods (∀ or ∃) - your choice.
+C. UNIVERSAL QUANTIFIER (LOGIC):
+   - Evaluates the truth value of the statement:
+     "For all students, is the course BSIT?"
+   - Demonstrates the concept of a counter-example to
+     disprove a universal statement.
 
-
-HOW TO OPEN IN ECLIPSE
-----------------------
-  1. Open Eclipse.
-  2. File -> Import... -> General -> Existing Projects into Workspace -> Next
-  3. Click "Select root directory" -> Browse...
-  4. Choose the StarterTemplate folder.
-  5. Tick "StarterTemplate" in the list -> Finish.
-  6. Right-click Main.java -> Run As -> Java Application.
-
-The program will COMPILE right away because every method has a stub.
-It just won't DO anything until you fill in the TODOs.
-
-
-WHERE TO START
---------------
-1. Open StudentBST.java and look for "// TODO".
-2. Implement add() first. Test by running Main and choosing [1] then [3].
-   When [3] prints students sorted by ID, your BST is working.
-3. Then implement search() and displayInOrder().
-4. Move on to CampusGraph.java - constructor first, then displayMap,
-   then shortestPath (the Dijkstra one).
-5. Finally, pick ONE quantifier method in QuantifierCheck.java and write it.
-
-
-PRE-LOADED SAMPLE DATA
-----------------------
-Main.java already adds 4 sample students at startup:
-  ID 500  | Juan Dela Cruz | BSIT
-  ID 250  | Maria Santos   | BSIT
-  ID 750  | Pedro Reyes    | BSCS
-  ID 1200 | Ana Garcia     | BSIT
-
-
-GRADED PARTS
-------------
-Your grade comes from the THREE files you fill in:
-  - StudentBST.java         (25 points)
-  - CampusGraph.java         (25 points)
-  - QuantifierCheck.java     (15 points)
-  - Program runs cleanly     (10 points)
-  - Comments / readability   (5 points)
-  - Video walkthrough        (20 points)
-  ----
-  TOTAL                       100 points
-
-
-JAVA VERSION
-------------
-Any Java 8 or newer. No external libraries needed.
+-----------------------------------------------------------
+3. HOW TO RUN
+-----------------------------------------------------------
+1. Open the project folder in IntelliJ IDEA.
+2. Ensure the JDK is set to version 21.
+3. Locate 'Main.java' in the src folder.
+4. Right-click 'Main.java' and run the file.
+5. Use the console menu to interact with the features.
