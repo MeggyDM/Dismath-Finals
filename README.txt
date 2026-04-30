@@ -9,8 +9,8 @@ COURSE/SECTION: BSIT / IT2D
 -----------------------------------------------------------
 1. VIDEO EXPLANATION LINK
 -----------------------------------------------------------
-Link:
-
+GDrive link: https://drive.google.com/drive/folders/1fGvvEgCXO7BmLp4XfTiCt4TrlWBc8Iet?usp=sharing
+GitHub Repo link: https://github.com/MeggyDM/Dismath-Finals.git
 -----------------------------------------------------------
 2. HOW THE PROGRAM WORKS
 -----------------------------------------------------------
