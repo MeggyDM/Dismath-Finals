@@ -1,23 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * ===== TOPIC: TREES (Binary Search Tree) =====
- *
- * A simple Binary Search Tree that stores Student records
- * using the Student ID as the key.
- *
- * BST rule: for every node,
- *   - all IDs in the LEFT subtree are SMALLER than the node's ID
- *   - all IDs in the RIGHT subtree are LARGER than the node's ID
- *
- * YOUR JOB:
- *   Implement add, search, displayInOrder, and getAllStudents.
- *   The Node class below is given to you.
- */
 public class StudentBST {
-
-    // Each Node holds a Student plus references to left and right children.
     private static class Node {
         Student student;
         Node left;
@@ -32,46 +16,89 @@ public class StudentBST {
 
     // ---------- ADD ----------
     public boolean add(Student s) {
-        // TODO: Insert the given student into the BST.
-        //   - If root is null, make this student the root and return true.
-        //   - Otherwise, follow the BST rule:
-        //       smaller ID -> go LEFT,
-        //       larger  ID -> go RIGHT.
-        //   - When you reach an empty spot, plant the new Node there.
-        //   - If a student with the same ID already exists, return false (no duplicates).
-        //   - Use a recursive helper method if it helps.
-        return false;
+        if (root == null) {
+            root = new Node(s);
+            return true;
+        }
+        return addRecursive(root, s);
+    }
+
+    private boolean addRecursive(Node current, Student s) {
+        // If ID matches, we don't allow duplicates
+        if (s.getId() == current.student.getId()) {
+            return false;
+        }
+
+        // If new ID is smaller, go left
+        if (s.getId() < current.student.getId()) {
+            if (current.left == null) {
+                current.left = new Node(s);
+                return true;
+            }
+            return addRecursive(current.left, s);
+        }
+        // If new ID is larger, go right
+        else {
+            if (current.right == null) {
+                current.right = new Node(s);
+                return true;
+            }
+            return addRecursive(current.right, s);
+        }
     }
 
     // ---------- SEARCH ----------
     public Student search(int id) {
-        // TODO: Find and return the student with the given ID.
-        //   - Walk the tree using the BST rule:
-        //       if id == current node's ID -> return that student
-        //       if id  < current node's ID -> search the LEFT subtree
-        //       if id  > current node's ID -> search the RIGHT subtree
-        //   - If you reach a null spot, the student is not in the tree (return null).
-        //   - Use a recursive helper method if it helps.
-        return null;
+        return searchRecursive(root, id);
+    }
+
+    private Student searchRecursive(Node current, int id) {
+        // Base case: ID not found
+        if (current == null) {
+            return null;
+        }
+
+        // Base case: ID found
+        if (id == current.student.getId()) {
+            return current.student;
+        }
+
+        // Recursive search based on BST rule
+        return id < current.student.getId()
+                ? searchRecursive(current.left, id)
+                : searchRecursive(current.right, id);
     }
 
     // ---------- IN-ORDER DISPLAY ----------
     public void displayInOrder() {
-        // TODO: Print every student using IN-ORDER traversal.
-        //   - The traversal order is: LEFT subtree, then current node, then RIGHT subtree.
-        //   - Because of the BST rule, this prints the students sorted by ID.
-        //   - If the tree is empty, print "(no students yet)".
-        //   - Print each student with System.out.println(node.student);
-        //   - Use a recursive helper method if it helps.
+        if (isEmpty()) {
+            System.out.println("(no students yet)");
+        } else {
+            displayInOrderRecursive(root);
+        }
+    }
+
+    private void displayInOrderRecursive(Node current) {
+        if (current != null) {
+            displayInOrderRecursive(current.left);   // 1. Visit Left
+            System.out.println(current.student);     // 2. Visit Self
+            displayInOrderRecursive(current.right);  // 3. Visit Right
+        }
     }
 
     // ---------- HELPER for the Quantifier module ----------
     public List<Student> getAllStudents() {
-        // TODO: Return every student in the tree as a List<Student>.
-        //   - Walk the tree the same way as displayInOrder,
-        //     but instead of printing each student, ADD it to a list.
-        //   - Return the list at the end.
-        return new ArrayList<>();
+        List<Student> list = new ArrayList<>();
+        collectRecursive(root, list);
+        return list;
+    }
+
+    private void collectRecursive(Node current, List<Student> list) {
+        if (current != null) {
+            collectRecursive(current.left, list);
+            list.add(current.student);
+            collectRecursive(current.right, list);
+        }
     }
 
     public boolean isEmpty() {
