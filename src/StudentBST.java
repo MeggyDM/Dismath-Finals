@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class StudentBST {
     private static class Node {
@@ -81,7 +80,7 @@ public class StudentBST {
     private void displayInOrderRecursive(Node current) {
         if (current != null) {
             displayInOrderRecursive(current.left);   // 1. Visit Left
-            System.out.println(current.student);     // 2. Visit Self
+            System.out.println(current.student);     // 2. Visit Root
             displayInOrderRecursive(current.right);  // 3. Visit Right
         }
     }
